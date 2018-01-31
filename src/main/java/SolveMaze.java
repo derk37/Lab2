@@ -33,24 +33,40 @@ public class SolveMaze {
          * You should be able to solve a 10 x 10 maze in (far fewer than) 1000 steps.
          * Feel free to adjust this number if you experiment with other mazes.
          */
-        for (int step = 0; step < 1000; step++) {
+//        for (int step = 0; step < 1000; step++) {
+////            // Implement your maze solving algorithm here
+////            maze.turnRight();
+////            if (!maze.canMove()) {
+////                maze.turnLeft();
+////                if (maze.canMove()) {
+////                    maze.move();
+////                } else {
+////                    maze.turnLeft();
+////                    if (maze.canMove()) {
+////                        maze.move();
+////                    } else {
+////                        maze.turnLeft();
+////                        maze.move();
+////                    }
+////                }
+////            } else {
+////                maze.move();
+////            }
+////            if (maze.isFinished()) {
+////                break;
+////            }
+////        }
+        for (int step = 0; step < 100000000; step++) {
             // Implement your maze solving algorithm here
-            maze.turnRight();
-            if (!maze.canMove()) {
-                maze.turnLeft();
-                if (maze.canMove()) {
-                    maze.move();
-                } else {
-                    maze.turnLeft();
-                    if (maze.canMove()) {
-                        maze.move();
-                    } else {
-                        maze.turnLeft();
-                        maze.move();
-                    }
-                }
-            } else {
+            if (maze.canMove()) {
                 maze.move();
+            } else {
+                double random = Math.random();
+                if (random < 0.5){
+                    maze.turnLeft();
+                } else {
+                    maze.turnRight();
+                }
             }
             if (maze.isFinished()) {
                 break;
